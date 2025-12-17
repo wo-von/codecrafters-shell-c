@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define CMD_SIZE 50
+#define TKN_SIZE 100
+
+int parse_input(char input[], char array[][], int input_size);
+
+int parse_input(char input[], char array[][], int input_size)
+{
+    char delim = ' ';
+    int index = 0;
+    int i = 0;
+    for (int j =0; j < input_size; j++) {
+      
+    }
+    return index;
+}
+int main(int argc, char *argv[])
+{
+    // Flush after every printf
+    setbuf(stdout, NULL);
+    char input[1024];
+    char input_array [TKN_SIZE][CMD_SIZE];
+
+    printf("$ ");
+
+    while (1) {
+        fgets(input, sizeof(input), stdin);
+        input[strcspn(input, "\n")] = '\0';
+
+        int len = parse_input(input, input_array, strlen(input));
+        if (strcmp(input, "exit") == 0)
+            break;
+        else if (strcmp(input_array[0], "echo") == 0) {
+            for (int i = 1; i < len; i ++)
+                printf("%s", input_array[i]);
+            printf("\n");
+        } else
+            printf("%s: command not found\n$ ", input);
+    }
+    return 0;
+}

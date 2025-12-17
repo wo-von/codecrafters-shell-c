@@ -1,0 +1,19 @@
+{
+  "name": "codecrafters-shell-c",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspace",
+  "runArgs": [
+    "--mount", "type=bind,source=${localWorkspaceFolder},target=/workspace"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools"
+      ]
+    }
+  }
+}

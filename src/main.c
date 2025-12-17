@@ -49,20 +49,19 @@ int main(int argc, char* argv[])
 
 		int len = parse_input(input, input_array, strlen(input));
 
-		if (strcmp(input_array[0], "type") == 0){
-            char found = 0;
-            for (int i = 0; i < sizeof(builtin)/sizeof(char*); i++){
-                if (strcmp(input_array[1], builtin[i]) == 0) {
-                    printf("%s is a shell builtin\n", builtin[i]);
-                    found = 1;
-                    break;
-                }
-            }
-            if (found == 0) {
-                printf("%s: not found\n", input_array[1]);
-            }
-        }
-        else if (strcmp(input_array[0], "exit") == 0) {
+		if (strcmp(input_array[0], "type") == 0) {
+			char found = 0;
+			for (int i = 0; i < sizeof(builtin) / sizeof(char*); i++) {
+				if (strcmp(input_array[1], builtin[i]) == 0) {
+					printf("%s is a shell builtin\n", builtin[i]);
+					found = 1;
+					break;
+				}
+			}
+			if (found == 0) {
+				printf("%s: not found\n", input_array[1]);
+			}
+		} else if (strcmp(input_array[0], "exit") == 0) {
 			break;
 		} else if (strcmp(input_array[0], "echo") == 0) {
 			for (int i = 1; i < len; i ++) {

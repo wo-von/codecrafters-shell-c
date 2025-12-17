@@ -1,0 +1,8 @@
+--indent=force-tab=8
+--indent-switches
+--lineend=linux
+--pad-header
+--pad-oper
+--unpad-paren
+--style=1tbs
+--suffix=none

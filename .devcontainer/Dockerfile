@@ -15,5 +15,10 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
 
 # [Optional] Uncomment this section to install additional packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-     && apt-get -y install --no-install-recommends libreadline-dev clang-format astyle
+     && apt-get -y install --no-install-recommends libreadline-dev clang-format astyle \
      clang-tidy
+
+# Copy .astylerc to vscode user's home so astyle auto-loads it
+COPY ./.astylerc /home/vscode/.astylerc
+# ensure ownership
+RUN chown vscode:vscode /home/vscode/.astylerc

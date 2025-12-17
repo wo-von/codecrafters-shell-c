@@ -22,3 +22,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 COPY ./.astylerc /home/vscode/.astylerc
 # ensure ownership
 RUN chown vscode:vscode /home/vscode/.astylerc
+
+# install codecrafters crap
+RUN curl -fsSL https://codecrafters.io/install.sh -o /tmp/install.sh \
+    && bash /tmp/install.sh \
+    && rm /tmp/install.sh

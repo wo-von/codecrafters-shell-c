@@ -41,10 +41,11 @@ int main(int argc, char* argv[])
 	char input[1024];
 	char input_array [TKN_NBR][TKN_SIZE];
 
-
 	while (1) {
 		printf("$ ");
-		fgets(input, sizeof(input), stdin);
+		if (fgets(input, sizeof(input), stdin) == NULL){
+			break;
+		}
 		input[strcspn(input, "\n")] = '\0';
 
 		int len = parse_input(input, input_array, strlen(input));
